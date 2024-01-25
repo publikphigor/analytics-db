@@ -16,6 +16,7 @@ import {
   SettingsIcon,
 } from '@assets/icons';
 import SidebarToggle from '@assets/icons/SidebarToggle';
+import { useTheme } from '@contexts/ThemeProvider';
 
 interface SidebarProps {
   sidebarExpanded: boolean;
@@ -82,8 +83,12 @@ const variants = {
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }) => {
+  const { dark, toggleTheme } = useTheme();
   const { pathname } = useLocation();
-  const isActive = (href: string) => href === pathname || (href !== '/' && pathname.includes(href));
+  const isActive = (href: string) =>
+    href === pathname ||
+    (href !== '/' && pathname.includes(href)) ||
+    (href === '/dashboard' && pathname === '/');
   return (
     <motion.nav
       initial={false}
@@ -96,10 +101,10 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
         },
       }}
       className={classNames(
-        'fixed inset-y-0 z-[91] flex flex-col justify-between overflow-y-auto overflow-x-hidden border-r-2 border-[#EBECF2] bg-[#F7F8FA] pt-5'
+        'fixed inset-y-0 z-[91] flex h-full flex-col justify-between overflow-y-auto overflow-x-hidden border-r-2 border-[#EBECF2] bg-[#F7F8FA] pb-[30px] pt-5 dark:border-[#26282C] dark:bg-transparent'
       )}
     >
-      <div>
+      <div className="h-max">
         <img
           src={logo}
           alt="logo"
@@ -113,12 +118,12 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
             return (
               <li
                 key={item.href}
-                className={`hover:active-indicator px-2 ${active ? 'active-indicator' : ''}`}
+                className={`hover:active-indicator px-2 ${active ? 'active-indicator' : ''} ${dark ? 'dark' : ''}`}
               >
                 <Link
                   to={item.href}
                   className={classNames(
-                    'rounded-5 group flex items-center gap-4 px-2.5 py-[0.4375rem] text-sm font-medium leading-none text-dark transition-colors duration-300',
+                    'rounded-5 dark:text-white-text group flex items-center gap-4 px-2.5 py-[0.4375rem] text-sm font-medium leading-none text-dark transition-colors duration-300',
                     { 'justify-center': !sidebarExpanded }
                   )}
                 >
@@ -154,8 +159,28 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
               }
             )}
           >
-            <Icon icon="bitcoin-icons:sun-filled" className="size-[30px] text-[#B2ABAB]" />
-            <Icon icon="bitcoin-icons:moon-filled" className="size-[30px] text-[#B2ABAB]" />
+            <button
+              className={`${!dark ? 'bg-accent' : ''} flex size-[30px] items-center justify-center rounded-full`}
+              type="button"
+              onClick={toggleTheme}
+              aria-label="toggle-theme"
+            >
+              <Icon
+                icon="bitcoin-icons:sun-filled"
+                className={` ${!dark ? 'size-[28px] text-white' : 'size-[30px] text-[#B2ABAB]'}`}
+              />
+            </button>
+            <button
+              className={`${dark ? 'bg-accent' : ''} flex size-[30px] items-center justify-center rounded-full`}
+              type="button"
+              onClick={toggleTheme}
+              aria-label="toggle-theme"
+            >
+              <Icon
+                icon="bitcoin-icons:moon-filled"
+                className={` ${dark ? 'size-[28px] text-white' : 'size-[30px] text-[#B2ABAB]'}`}
+              />
+            </button>
           </div>
           <div className="mt-auto grid gap-[20px]">
             <li className="px-2">
@@ -163,7 +188,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
                 type="button"
                 onClick={() => {}}
                 className={classNames(
-                  'rounded-5 text-text-grey primary-transition hover:bg-delete group flex w-full items-center gap-x-4 px-2.5 py-[0.4375rem] text-sm',
+                  'rounded-5 primary-transition dark:text-white-text group flex w-full items-center gap-x-4 px-2.5 py-[0.4375rem] text-sm text-dark',
                   { 'justify-center': !sidebarExpanded }
                 )}
               >
@@ -188,7 +213,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
                 type="button"
                 onClick={() => {}}
                 className={classNames(
-                  'rounded-5 text-text-grey primary-transition hover:bg-delete group flex w-full items-center gap-x-4 px-2.5 py-[0.4375rem] text-sm',
+                  'rounded-5 primary-transition dark:text-white-text group flex w-full items-center gap-x-4 px-2.5 py-[0.4375rem] text-sm text-dark',
                   { 'justify-center': !sidebarExpanded }
                 )}
               >

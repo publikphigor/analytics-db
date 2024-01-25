@@ -10,6 +10,7 @@ import { LazyExoticComponent, Suspense, lazy } from 'react';
 import NotFound from '@pages/NotFound';
 import ErrorPage from '@components/global/ErrorPage';
 import DashboardLayout from '@components/global/DashboardLayout';
+import { ThemeProvider } from '@contexts/ThemeProvider';
 
 interface LazyRoute {
   path: string;
@@ -18,6 +19,10 @@ interface LazyRoute {
 
 // Lazy routes
 const lazyRoutes: LazyRoute[] = [
+  {
+    path: '/',
+    component: lazy(() => import('@pages/Dashboard')),
+  },
   {
     path: paths.dashboard,
     component: lazy(() => import('@pages/Dashboard')),
@@ -67,9 +72,11 @@ const App = () => {
     )
   );
   return (
-    <div className="h-[100svh] font-jakarta">
-      <RouterProvider router={router} />
-    </div>
+    <ThemeProvider>
+      <div className="dark:text-white-text dark:bg-dark-bg h-[100svh] bg-[#FAFAFA] font-jakarta text-main">
+        <RouterProvider router={router} />
+      </div>
+    </ThemeProvider>
   );
 };
 
