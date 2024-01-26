@@ -235,7 +235,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
                 </AnimatePresence>
               </button>
             </li>
-            <li className="hidden px-2 md:block">
+            <li className="px-2">
               <button
                 onClick={() => {
                   if (sidebarExpanded) {

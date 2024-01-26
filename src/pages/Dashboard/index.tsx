@@ -66,7 +66,9 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="w-full overflow-x-auto">
-            <BarChart />
+            <div className="min-w-[600px]">
+              <BarChart />
+            </div>
           </div>
         </div>
         <div className="order-1 grid grid-cols-1 gap-5 md:grid-cols-2 lg:order-2 lg:col-span-2">
