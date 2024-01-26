@@ -48,19 +48,19 @@
 /* Track */
 .custom-scroll::-webkit-scrollbar-track,
 *::-webkit-scrollbar-track {
-  @apply bg-[#F4F5F8];
+  @apply bg-[#F4F5F8] dark:bg-slate-700;
   border-radius: 5px;
 }
 
 /* Handle */
 .custom-scroll::-webkit-scrollbar-thumb,
 *::-webkit-scrollbar-thumb {
-  @apply bg-[#A0AEC0];
+  @apply bg-[#A0AEC0] dark:bg-dark-bg-raised;
   border-radius: 5px;
 }
 
 /* Handle on hover */
 .custom-scroll::-webkit-scrollbar-thumb:hover,
 *::-webkit-scrollbar-thumb:hover {
-  @apply bg-[#A0AEC0];
+  @apply bg-[#A0AEC0] dark:bg-dark-bg-raised;
 }

@@ -101,7 +101,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
         },
       }}
       className={classNames(
-        'fixed inset-y-0 z-[91] flex h-full flex-col justify-between overflow-y-auto overflow-x-hidden border-r-2 border-[#EBECF2] bg-[#F7F8FA] pb-[30px] pt-5 dark:border-[#26282C] dark:bg-transparent'
+        'fixed inset-y-0 z-[91] flex h-full flex-col justify-between overflow-y-auto overflow-x-hidden border-r-2 border-[#EBECF2] bg-[#F7F8FA] pb-[30px] pt-5 dark:border-[#26282C] dark:bg-dark-bg-raised'
       )}
     >
       <div className="h-max">
@@ -123,7 +123,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
                 <Link
                   to={item.href}
                   className={classNames(
-                    'rounded-5 dark:text-white-text group flex items-center gap-4 px-2.5 py-[0.4375rem] text-sm font-medium leading-none text-dark transition-colors duration-300',
+                    'rounded-5 group flex items-center gap-4 px-2.5 py-[0.4375rem] text-sm font-medium leading-none text-dark transition-colors duration-300 dark:text-white-text',
                     { 'justify-center': !sidebarExpanded }
                   )}
                 >
@@ -188,7 +188,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
                 type="button"
                 onClick={() => {}}
                 className={classNames(
-                  'rounded-5 primary-transition dark:text-white-text group flex w-full items-center gap-x-4 px-2.5 py-[0.4375rem] text-sm text-dark',
+                  'rounded-5 primary-transition group flex w-full items-center gap-x-4 px-2.5 py-[0.4375rem] text-sm text-dark dark:text-white-text',
                   { 'justify-center': !sidebarExpanded }
                 )}
               >
@@ -213,7 +213,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
                 type="button"
                 onClick={() => {}}
                 className={classNames(
-                  'rounded-5 primary-transition dark:text-white-text group flex w-full items-center gap-x-4 px-2.5 py-[0.4375rem] text-sm text-dark',
+                  'rounded-5 primary-transition group flex w-full items-center gap-x-4 px-2.5 py-[0.4375rem] text-sm text-dark dark:text-white-text',
                   { 'justify-center': !sidebarExpanded }
                 )}
               >

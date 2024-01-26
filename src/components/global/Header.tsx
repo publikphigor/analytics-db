@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarExpanded }) => {
   return (
     <header
       className={classNames(
-        'white-transparent-bg fixed right-0 top-0 z-[90] flex h-[70px] items-center justify-between border-b border-[#E5EAEF] px-5 py-5 font-inter transition-all duration-[0.05] dark:border-[#26282C] ',
+        'white-raised-bg fixed right-0 top-0 z-[90] flex h-[70px] items-center justify-between border-b border-[#E5EAEF] px-5 py-5 font-inter transition-all duration-[0.05] dark:border-[#26282C] ',
         sidebarExpanded ? 'left-[240px]' : 'left-[80px]'
       )}
     >

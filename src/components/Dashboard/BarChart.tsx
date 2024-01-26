@@ -20,7 +20,7 @@ const data = {
 };
 
 const createGradient = (context: any) => {
-  const gradient = context.chart.ctx.createLinearGradient(0, 0, context.chart.width, 0);
+  const gradient = context.chart.ctx.createLinearGradient(0, 0, 0, context.chart.width);
 
   gradient.addColorStop(0, '#34CAA5');
   gradient.addColorStop(1, 'rgba(52, 202, 165, 0.00)');
