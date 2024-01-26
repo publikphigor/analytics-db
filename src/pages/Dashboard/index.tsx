@@ -1,7 +1,8 @@
 import { AverageSalesIcon, TotalOrderIcon, TotalRefundIcon } from '@assets/icons';
 import BarChart from '@components/Dashboard/BarChart';
 import MetricsCard from '@components/Dashboard/MetricsCard';
-import { headers, orders } from '@constants/store';
+import Platform from '@components/Dashboard/Platform';
+import { headers, orders, platforms } from '@constants/store';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import classNames from 'classnames';
 
@@ -141,6 +142,12 @@ const Dashboard = () => {
             <span className="cursor-pointer text-[18px] font-medium text-accent hover:underline">
               See All
             </span>
+          </div>
+          <div className="flex max-h-[400px] flex-col gap-5 overflow-y-auto">
+            {platforms.map((platform, index) => (
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              <Platform key={String(index + 1)} {...platform} />
+            ))}
           </div>
         </div>
       </div>
