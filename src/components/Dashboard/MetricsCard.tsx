@@ -19,9 +19,9 @@ const MetricsCard = ({
   percentage,
 }: MetricsCardProps): JSX.Element => {
   return (
-    <div className="border-primary white-transparent-bg flex flex-col gap-[10px] rounded-[14px] p-4">
+    <div className="border-primary white-transparent-bg flex flex-col gap-[10px] rounded-[14px] border p-4">
       <div className="flex items-center justify-between">
-        <div className="border-primary flex size-[40px] items-center justify-center rounded-full">
+        <div className="border-primary flex size-[40px] items-center justify-center rounded-full border">
           {icon}
         </div>
         <div className="h-[32px] w-[100px]">

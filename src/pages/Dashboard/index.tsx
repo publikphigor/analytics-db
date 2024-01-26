@@ -1,7 +1,9 @@
 import { AverageSalesIcon, TotalOrderIcon, TotalRefundIcon } from '@assets/icons';
 import BarChart from '@components/Dashboard/BarChart';
 import MetricsCard from '@components/Dashboard/MetricsCard';
+import { headers, orders } from '@constants/store';
 import { Icon } from '@iconify/react/dist/iconify.js';
+import classNames from 'classnames';
 
 interface Metric {
   id: number;
@@ -51,12 +53,12 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col gap-5">
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-5">
-        <div className="border-primary white-transparent-bg order-2 flex flex-col gap-[10px] rounded-[14px] p-5 lg:order-1 lg:col-span-3">
+        <div className="border-primary white-transparent-bg order-2 flex flex-col gap-[10px] rounded-[14px] border p-5 lg:order-1 lg:col-span-3">
           <div className="flex items-center justify-between">
             <h2 className="text-[18px] font-semibold">Sales Trends</h2>
             <div className="flex items-center gap-[10px]">
               <p className="text-[14px] font-medium text-[#3A3F51]">Short by:</p>
-              <div className="border-primary flex items-center justify-between gap-3 rounded-[28px] px-3 py-1">
+              <div className="border-primary flex items-center justify-between gap-3 rounded-[28px] border px-3 py-1">
                 <p className="text-[16px]">Weekly</p>
                 <Icon icon="eva:arrow-ios-downward-outline" className="size-[20px]" />
               </div>
@@ -75,6 +77,71 @@ const Dashboard = () => {
               percentage={metric.percentage}
             />
           ))}
+        </div>
+      </div>
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-5">
+        <div className="border-primary white-transparent-bg order-2 flex flex-col gap-[10px] rounded-[14px] border p-5 lg:order-1 lg:col-span-3">
+          <div className="mb-[14px] flex items-center justify-between">
+            <h2 className="text-[18px] font-semibold">Last Orders</h2>
+            <span className="cursor-pointer text-[18px] font-medium text-accent hover:underline">
+              See All
+            </span>
+          </div>
+          <table className="w-full">
+            <thead>
+              <tr className="border-primary border-b">
+                {headers.map((header, index) => (
+                  <th
+                    key={String(index + 1)}
+                    className={classNames(
+                      `align-left h-[1.71538rem] whitespace-nowrap px-[0.813rem] py-2 text-left text-base font-medium text-[#9CA4AB]`
+                    )}
+                  >
+                    {header}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[#DADDDD] dark:divide-[#26282C]">
+              {orders.map((item, rowIndex) => (
+                <tr
+                  key={String(rowIndex + 1)}
+                  className={classNames(`cursor-pointer transition-all duration-300`)}
+                >
+                  <td className="flex items-center gap-[10px] whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium text-[#3A3F51] dark:text-white-text">
+                    <img src={item.image} alt={item.name} className="size-[32px] rounded-full" />
+                    <span>{item.name}</span>
+                  </td>
+                  <td className="whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium text-neutral">
+                    {item.date}
+                  </td>
+                  <td className="whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium">
+                    {item.amount}
+                  </td>
+                  <td
+                    className={classNames(
+                      `whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium`,
+                      item.status === 'Paid' ? 'text-[#34CAA5]' : 'text-[#ED544E]'
+                    )}
+                  >
+                    {item.status}
+                  </td>
+                  <td className="flex items-center gap-[6px] whitespace-nowrap px-[0.813rem] py-[18px] align-middle">
+                    <Icon icon="solar:file-download-linear" className="size-[16px]" />
+                    View
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="border-primary white-transparent-bg order-2 flex flex-col gap-[10px] rounded-[14px] border p-5 lg:order-1 lg:col-span-2">
+          <div className="mb-[14px] flex items-center justify-between">
+            <h2 className="text-[18px] font-semibold">Top Platforms</h2>
+            <span className="cursor-pointer text-[18px] font-medium text-accent hover:underline">
+              See All
+            </span>
+          </div>
         </div>
       </div>
     </div>

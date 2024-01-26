@@ -8,10 +8,10 @@
 
 @layer utilities {
   .border-primary {
-    @apply border border-[#DADDDD] dark:border-[#26282C];
+    @apply border-[#DADDDD] dark:border-[#26282C];
   }
   .white-raised-bg {
-    @apply dark:bg-dark-bg-raised bg-white;
+    @apply bg-white dark:bg-dark-bg-raised;
   }
   .white-transparent-bg {
     @apply bg-white dark:bg-transparent;

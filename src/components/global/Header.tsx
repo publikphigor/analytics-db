@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarExpanded }) => {
   return (
     <header
       className={classNames(
-        'font-inter fixed right-0 top-0 z-[90] flex h-[70px] items-center justify-between border-b border-[#E5EAEF] px-5 py-5 transition-all duration-[0.05] dark:border-[#26282C]',
+        'white-transparent-bg fixed right-0 top-0 z-[90] flex h-[70px] items-center justify-between border-b border-[#E5EAEF] px-5 py-5 font-inter transition-all duration-[0.05] dark:border-[#26282C] ',
         sidebarExpanded ? 'left-[240px]' : 'left-[80px]'
       )}
     >
@@ -39,27 +39,27 @@ const Header: React.FC<HeaderProps> = ({ sidebarExpanded }) => {
           />
           <input
             type="text"
-            className="dark:text-white-text w-[350px] rounded-[24px] border-none bg-white py-3 pl-10 pr-4 transition-all duration-200 focus:outline-none focus:ring-0  dark:bg-transparent dark:placeholder-[#78828A]"
+            className="w-[350px] rounded-[24px] border-none bg-white py-3 pl-10 pr-4 transition-all duration-200 focus:outline-none focus:ring-0 dark:bg-transparent  dark:text-white-text dark:placeholder-[#78828A]"
             placeholder="Search..."
           />
         </div>
         <div className="flex items-center gap-[10px]">
           <Icon
             icon="solar:calendar-linear"
-            className="dark:text-white-text size-[20px] text-black"
+            className="size-[20px] text-black dark:text-white-text"
           />
           <span className="text-[14px] font-medium">
             {formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1)}
           </span>
         </div>
-        <div className="border-primary flex size-[40px] items-center justify-center rounded-full">
+        <div className="border-primary flex size-[40px] items-center justify-center rounded-full border">
           <Icon icon="solar:bell-outline" className="size-[20px]" />
         </div>
         <div className="flex items-center justify-between gap-3 rounded-[28px] border border-[#DADDDD] p-1 dark:border-[#26282C]">
           <img
             src={publikphigor}
             alt="publikphigor"
-            className="border-primary size-[38px] rounded-full"
+            className="border-primary size-[38px] rounded-full border"
           />
           <div className="flex flex-col text-right">
             <h3 className="text-[16px]">Koladele Olaitan</h3>

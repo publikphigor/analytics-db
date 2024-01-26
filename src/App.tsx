@@ -73,7 +73,7 @@ const App = () => {
   );
   return (
     <ThemeProvider>
-      <div className="dark:text-white-text dark:bg-dark-bg h-[100svh] bg-[#FAFAFA] font-jakarta text-main">
+      <div className="min-h-[100svh] bg-[#FAFAFA] font-jakarta text-main dark:bg-dark-bg dark:text-white-text">
         <RouterProvider router={router} />
       </div>
     </ThemeProvider>
