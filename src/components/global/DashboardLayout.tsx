@@ -15,7 +15,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = () => {
       <Sidebar sidebarExpanded={sidebarExpanded} setSidebarExpanded={setSidebarExpanded} />
       <main
         className={classNames(
-          'bg-grey-bg min-h-full px-10 pb-5 pt-[5rem] transition-all duration-[0.05]',
+          'bg-grey-bg min-h-full px-10 pb-5 pt-[90px] transition-all duration-[0.05]',
           sidebarExpanded ? 'ml-[16rem]' : 'ml-[4.625rem]'
         )}
       >

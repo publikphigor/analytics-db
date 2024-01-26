@@ -7,6 +7,10 @@ import ManageIcon from './ManageIcon';
 import DiscountsIcon from './DiscountsIcon';
 import InformationIcon from './InformationIcon';
 import SettingsIcon from './SettingsIcon';
+import TotalOrderIcon from './TotalOrderIcon';
+import TotalRefundIcon from './TotalRefundIcon';
+import TotalIncomeIcon from './TotalIncomeIcon';
+import AverageSalesIcon from './AverageSalesIcon';
 
 export {
   logo,
@@ -18,4 +22,8 @@ export {
   DiscountsIcon,
   InformationIcon,
   SettingsIcon,
+  TotalOrderIcon,
+  TotalRefundIcon,
+  TotalIncomeIcon,
+  AverageSalesIcon,
 };

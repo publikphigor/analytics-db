@@ -7,6 +7,15 @@
 @tailwind utilities;
 
 @layer utilities {
+  .border-primary {
+    @apply border border-[#DADDDD] dark:border-[#26282C];
+  }
+  .white-raised-bg {
+    @apply dark:bg-dark-bg-raised bg-white;
+  }
+  .white-transparent-bg {
+    @apply bg-white dark:bg-transparent;
+  }
   .active-indicator {
     @apply relative;
   }

@@ -12,6 +12,7 @@ export default {
         'grey-text': '#B2ABAB',
         'white-text': '#E6EDF3',
         'dark-bg': '#0D0F15',
+        'dark-bg-raised': '#1A1C22',
       },
       fontFamily: {
         jakarta: ['Plus Jakarta Sans', 'sans-serif'],

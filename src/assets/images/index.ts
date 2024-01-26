@@ -1,5 +1,5 @@
 import publikphigor from './publikphigor.webp';
+import uptrend from './uptrend.svg';
+import downtrend from './downtrend.svg';
 
-const placeholder = 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
-
-export { publikphigor, placeholder };
+export { publikphigor, uptrend, downtrend };

@@ -52,14 +52,14 @@ const Header: React.FC<HeaderProps> = ({ sidebarExpanded }) => {
             {formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1)}
           </span>
         </div>
-        <div className="flex size-[40px] items-center justify-center rounded-full border border-[#DADDDD] dark:border-[#26282C]">
+        <div className="border-primary flex size-[40px] items-center justify-center rounded-full">
           <Icon icon="solar:bell-outline" className="size-[20px]" />
         </div>
         <div className="flex items-center justify-between gap-3 rounded-[28px] border border-[#DADDDD] p-1 dark:border-[#26282C]">
           <img
             src={publikphigor}
             alt="publikphigor"
-            className="size-[38px] rounded-full border border-[#DADDDD] dark:border-[#26282C]"
+            className="border-primary size-[38px] rounded-full"
           />
           <div className="flex flex-col text-right">
             <h3 className="text-[16px]">Koladele Olaitan</h3>
