@@ -49,7 +49,7 @@ const BarChart = () => {
         borderColor: '#f2f2f2',
         callbacks: {
           label: (context: any) => {
-            const label = `${context.label}  ${context.raw}`;
+            const label = `$${(context.formattedValue * 1.125).toFixed(3)}`;
             return label;
           },
         },
@@ -79,6 +79,7 @@ const BarChart = () => {
             borderWidth: 2,
             borderDash: [2, 2],
             borderRadius: 2,
+            display: 'none',
           };
         },
         labelTextColor() {

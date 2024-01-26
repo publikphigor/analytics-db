@@ -25,7 +25,7 @@ const metrics: Metric[] = [
     percentage: '23,5%',
   },
   {
-    id: 1,
+    id: 2,
     name: 'Total Refund',
     value: 270,
     icon: <TotalRefundIcon className="size-6" />,
@@ -33,7 +33,7 @@ const metrics: Metric[] = [
     percentage: '23,5%',
   },
   {
-    id: 1,
+    id: 3,
     name: 'Average Sales',
     value: 1567,
     icon: <AverageSalesIcon className="size-6" />,
@@ -41,7 +41,7 @@ const metrics: Metric[] = [
     percentage: '23,5%',
   },
   {
-    id: 1,
+    id: 4,
     name: 'Total Order',
     value: '$350.000',
     icon: <TotalOrderIcon className="size-6" />,
@@ -96,7 +96,7 @@ const Dashboard = () => {
                 <tr className="border-primary border-b">
                   {headers.map((header, index) => (
                     <th
-                      key={String(index + 1)}
+                      key={`${String(index + 1)}-header`}
                       className={classNames(
                         `align-left h-[1.71538rem] whitespace-nowrap px-[0.813rem] py-2 text-left text-base font-medium text-[#9CA4AB]`
                       )}
@@ -109,7 +109,7 @@ const Dashboard = () => {
               <tbody className="divide-y divide-[#DADDDD] dark:divide-[#26282C]">
                 {orders.map((item, rowIndex) => (
                   <tr
-                    key={String(rowIndex + 1)}
+                    key={`${String(rowIndex + 1)}-row`}
                     className={classNames(`cursor-pointer transition-all duration-300`)}
                   >
                     <td className="flex w-max items-center gap-[10px] whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium text-[#3A3F51] dark:text-white-text">
@@ -148,9 +148,9 @@ const Dashboard = () => {
             </span>
           </div>
           <div className="flex max-h-[400px] flex-col gap-5 overflow-y-auto">
-            {platforms.map((platform, index) => (
+            {platforms.map((platform) => (
               // eslint-disable-next-line react/jsx-props-no-spreading
-              <Platform key={String(index + 1)} {...platform} />
+              <Platform key={platform.name} {...platform} />
             ))}
           </div>
         </div>
