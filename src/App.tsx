@@ -11,6 +11,8 @@ import NotFound from '@pages/NotFound';
 import ErrorPage from '@components/global/ErrorPage';
 import DashboardLayout from '@components/global/DashboardLayout';
 import { ThemeProvider } from '@contexts/ThemeProvider';
+import { Helmet } from 'react-helmet';
+import { db } from '@assets/images';
 
 interface LazyRoute {
   path: string;
@@ -74,6 +76,9 @@ const App = () => {
   return (
     <ThemeProvider>
       <div className="min-h-[100svh] bg-[#FAFAFA] font-jakarta text-main dark:bg-dark-bg dark:text-white-text">
+        <Helmet>
+          <meta property="og:image" content={db} />
+        </Helmet>
         <RouterProvider router={router} />
       </div>
     </ThemeProvider>
