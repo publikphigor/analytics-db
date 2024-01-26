@@ -33,7 +33,7 @@ const MetricsCard = ({
         </div>
       </div>
       <h3 className="text-[18px] font-medium capitalize text-[#898989]">{name}</h3>
-      <h3 className="dark:text-white-text text-[24px] font-semibold capitalize text-[#3A3F51]">
+      <h3 className="text-[24px] font-semibold capitalize text-[#3A3F51] dark:text-white-text">
         {value}
       </h3>
       <div className="flex flex-wrap items-center gap-[10px]">
@@ -49,7 +49,7 @@ const MetricsCard = ({
           />
           {percentage}
         </div>
-        <span className="font-inter w-max shrink-0 text-sm text-[#606060]">vs. previous month</span>
+        <span className="w-max shrink-0 font-inter text-sm text-[#606060]">vs. previous month</span>
       </div>
     </div>
   );
