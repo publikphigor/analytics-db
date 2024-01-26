@@ -27,6 +27,7 @@
       "@components/*": ["src/components/*"],
       "@contexts/*": ["src/contexts/*"],
       "@constants/*": ["src/constants/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@pages/*": ["src/pages/*"],
     },
   },

@@ -17,6 +17,7 @@ import {
 } from '@assets/icons';
 import SidebarToggle from '@assets/icons/SidebarToggle';
 import { useTheme } from '@contexts/ThemeProvider';
+import useScreenWidth from '@hooks/useScreenWidth';
 
 interface SidebarProps {
   sidebarExpanded: boolean;
@@ -83,6 +84,7 @@ const variants = {
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }) => {
+  const isMobile = useScreenWidth(1024);
   const { dark, toggleTheme } = useTheme();
   const { pathname } = useLocation();
   const isActive = (href: string) =>
@@ -153,7 +155,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
           })}
           <div
             className={classNames(
-              'mx-auto flex w-max items-center justify-center gap-4 rounded-full bg-white p-2',
+              'mx-auto flex w-max items-center justify-center gap-4 rounded-full bg-white p-2 dark:bg-slate-800',
               {
                 'flex-col': !sidebarExpanded,
               }
@@ -183,7 +185,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
             </button>
           </div>
           <div className="mt-auto grid gap-[20px]">
-            <li className="px-2">
+            <li className={`hover:active-indicator px-2 ${dark ? 'dark' : ''}`}>
               <button
                 type="button"
                 onClick={() => {}}
@@ -208,7 +210,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
                 </AnimatePresence>
               </button>
             </li>
-            <li className="px-2">
+            <li className={`hover:active-indicator px-2 ${dark ? 'dark' : ''}`}>
               <button
                 type="button"
                 onClick={() => {}}
@@ -233,9 +235,15 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
                 </AnimatePresence>
               </button>
             </li>
-            <li className="px-2">
+            <li className="hidden px-2 md:block">
               <button
-                onClick={() => setSidebarExpanded(!sidebarExpanded)}
+                onClick={() => {
+                  if (sidebarExpanded) {
+                    setSidebarExpanded(false);
+                    return;
+                  }
+                  if (!isMobile) setSidebarExpanded(!sidebarExpanded);
+                }}
                 type="button"
                 className={classNames('group flex px-2.5 py-[0.4375rem]', {
                   'mx-auto block justify-center px-0': !sidebarExpanded,

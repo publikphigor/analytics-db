@@ -15,6 +15,8 @@ const data = {
       borderRadius: 20,
       barThickness: 30,
       zeroLineColor: '#EAEAEA',
+      categoryPercentage: 0.9,
+      barPercentage: 0.7,
     },
   ],
 };
@@ -89,9 +91,10 @@ const BarChart = () => {
         hoverBackgroundColor: createGradient,
       },
     },
+    maintainAspectRatio: false,
   };
 
-  return <Chart type="bar" data={data} options={options} width={600} height={320} />;
+  return <Chart type="bar" data={data} options={options} width={900} height={320} />;
 };
 
 export default BarChart;

@@ -32,18 +32,18 @@ const Header: React.FC<HeaderProps> = ({ sidebarExpanded }) => {
     >
       <h1 className="text-[20px] font-semibold capitalize">{nameShown}</h1>
       <div className="flex items-center gap-5">
-        <div className="relative overflow-hidden rounded-[24px] border border-transparent focus-within:border-[#DADDDD] dark:border-[#26282C] dark:focus-within:border-[#26282C]">
+        <div className="relative hidden overflow-hidden rounded-[24px] border border-[#DADDDD] focus-within:border-[2px] dark:border-[#B2ABAB] lg:block">
           <Icon
             icon="eva:search-outline"
             className="absolute left-4 top-1/2 size-[18px] -translate-y-1/2 text-[#78828A]"
           />
           <input
             type="text"
-            className="w-[350px] rounded-[24px] border-none bg-white py-3 pl-10 pr-4 transition-all duration-200 focus:outline-none focus:ring-0 dark:bg-transparent  dark:text-white-text dark:placeholder-[#78828A]"
+            className="w-[350px] rounded-[24px] border-none bg-white py-3 pl-10 pr-4 outline-none transition-all duration-200 focus:outline-none focus:ring-0 dark:bg-transparent  dark:text-white-text dark:placeholder-[#78828A]"
             placeholder="Search..."
           />
         </div>
-        <div className="flex items-center gap-[10px]">
+        <div className="hidden items-center gap-[10px] lg:flex">
           <Icon
             icon="solar:calendar-linear"
             className="size-[20px] text-black dark:text-white-text"
@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarExpanded }) => {
             {formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1)}
           </span>
         </div>
-        <div className="border-primary flex size-[40px] items-center justify-center rounded-full border">
+        <div className="border-primary hidden size-[40px] items-center justify-center rounded-full border lg:flex">
           <Icon icon="solar:bell-outline" className="size-[20px]" />
         </div>
         <div className="flex items-center justify-between gap-3 rounded-[28px] border border-[#DADDDD] p-1 dark:border-[#26282C]">
@@ -61,7 +61,7 @@ const Header: React.FC<HeaderProps> = ({ sidebarExpanded }) => {
             alt="publikphigor"
             className="border-primary size-[38px] rounded-full border"
           />
-          <div className="flex flex-col text-right">
+          <div className="hidden flex-col text-right lg:flex">
             <h3 className="text-[16px]">Koladele Olaitan</h3>
             <a href="mailto:koladeleolaitan@gmail.com" className="text-[14px] text-[##787486]">
               koladeleolaitan@gmail.com

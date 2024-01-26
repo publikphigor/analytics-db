@@ -20,10 +20,13 @@
     "classnames": "^2.3.2",
     "dayjs": "^1.11.10",
     "framer-motion": "^10.16.16",
+    "install": "^0.13.0",
+    "npm": "^10.4.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.3",
+    "react-use": "^17.5.0",
     "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {

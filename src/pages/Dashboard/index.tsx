@@ -55,17 +55,19 @@ const Dashboard = () => {
     <div className="flex flex-col gap-5">
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-5">
         <div className="border-primary white-transparent-bg order-2 flex flex-col gap-[10px] rounded-[14px] border p-5 lg:order-1 lg:col-span-3">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col justify-between gap-3 lg:flex-row lg:items-center">
             <h2 className="text-[18px] font-semibold">Sales Trends</h2>
             <div className="flex items-center gap-[10px]">
-              <p className="text-[14px] font-medium text-[#3A3F51]">Short by:</p>
+              <p className="text-[14px] font-medium text-[#3A3F51] dark:text-neutral">Short by:</p>
               <div className="border-primary flex items-center justify-between gap-3 rounded-[28px] border px-3 py-1">
                 <p className="text-[16px]">Weekly</p>
                 <Icon icon="eva:arrow-ios-downward-outline" className="size-[20px]" />
               </div>
             </div>
           </div>
-          <BarChart />
+          <div className="w-full overflow-x-auto">
+            <BarChart />
+          </div>
         </div>
         <div className="order-1 grid grid-cols-1 gap-5 md:grid-cols-2 lg:order-2 lg:col-span-2">
           {metrics.map((metric) => (
@@ -81,60 +83,62 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-5">
-        <div className="border-primary white-transparent-bg order-2 flex flex-col gap-[10px] rounded-[14px] border p-5 lg:order-1 lg:col-span-3">
+        <div className="border-primary white-transparent-bg order-2 flex flex-col gap-[10px] overflow-x-auto rounded-[14px] border p-5 lg:order-1 lg:col-span-3">
           <div className="mb-[14px] flex items-center justify-between">
             <h2 className="text-[18px] font-semibold">Last Orders</h2>
             <span className="cursor-pointer text-[18px] font-medium text-accent hover:underline">
               See All
             </span>
           </div>
-          <table className="w-full">
-            <thead>
-              <tr className="border-primary border-b">
-                {headers.map((header, index) => (
-                  <th
-                    key={String(index + 1)}
-                    className={classNames(
-                      `align-left h-[1.71538rem] whitespace-nowrap px-[0.813rem] py-2 text-left text-base font-medium text-[#9CA4AB]`
-                    )}
-                  >
-                    {header}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[#DADDDD] dark:divide-[#26282C]">
-              {orders.map((item, rowIndex) => (
-                <tr
-                  key={String(rowIndex + 1)}
-                  className={classNames(`cursor-pointer transition-all duration-300`)}
-                >
-                  <td className="flex items-center gap-[10px] whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium text-[#3A3F51] dark:text-white-text">
-                    <img src={item.image} alt={item.name} className="size-[32px] rounded-full" />
-                    <span>{item.name}</span>
-                  </td>
-                  <td className="whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium text-neutral">
-                    {item.date}
-                  </td>
-                  <td className="whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium">
-                    {item.amount}
-                  </td>
-                  <td
-                    className={classNames(
-                      `whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium`,
-                      item.status === 'Paid' ? 'text-[#34CAA5]' : 'text-[#ED544E]'
-                    )}
-                  >
-                    {item.status}
-                  </td>
-                  <td className="flex items-center gap-[6px] whitespace-nowrap px-[0.813rem] py-[18px] align-middle">
-                    <Icon icon="solar:file-download-linear" className="size-[16px]" />
-                    View
-                  </td>
+          <div className="w-full overflow-x-auto">
+            <table className="w-full">
+              <thead>
+                <tr className="border-primary border-b">
+                  {headers.map((header, index) => (
+                    <th
+                      key={String(index + 1)}
+                      className={classNames(
+                        `align-left h-[1.71538rem] whitespace-nowrap px-[0.813rem] py-2 text-left text-base font-medium text-[#9CA4AB]`
+                      )}
+                    >
+                      {header}
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-[#DADDDD] dark:divide-[#26282C]">
+                {orders.map((item, rowIndex) => (
+                  <tr
+                    key={String(rowIndex + 1)}
+                    className={classNames(`cursor-pointer transition-all duration-300`)}
+                  >
+                    <td className="flex w-max items-center gap-[10px] whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium text-[#3A3F51] dark:text-white-text">
+                      <img src={item.image} alt={item.name} className="size-[32px] rounded-full" />
+                      <span>{item.name}</span>
+                    </td>
+                    <td className="w-max whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium text-neutral">
+                      {item.date}
+                    </td>
+                    <td className="w-max whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium">
+                      {item.amount}
+                    </td>
+                    <td
+                      className={classNames(
+                        `w-max whitespace-nowrap px-[0.813rem] py-[18px] align-middle font-medium`,
+                        item.status === 'Paid' ? 'text-[#34CAA5]' : 'text-[#ED544E]'
+                      )}
+                    >
+                      {item.status}
+                    </td>
+                    <td className="flex w-max items-center gap-[6px] whitespace-nowrap px-[0.813rem] py-[18px] align-middle">
+                      <Icon icon="solar:file-download-linear" className="size-[16px]" />
+                      View
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
         <div className="border-primary white-transparent-bg order-2 flex flex-col gap-[10px] rounded-[14px] border p-5 lg:order-1 lg:col-span-2">
           <div className="mb-[14px] flex items-center justify-between">

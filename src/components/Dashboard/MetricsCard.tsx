@@ -49,7 +49,9 @@ const MetricsCard = ({
           />
           {percentage}
         </div>
-        <span className="w-max shrink-0 font-inter text-sm text-[#606060]">vs. previous month</span>
+        <span className="w-max shrink-0 font-inter text-sm text-[#606060] dark:text-[#898989]">
+          vs. previous month
+        </span>
       </div>
     </div>
   );
