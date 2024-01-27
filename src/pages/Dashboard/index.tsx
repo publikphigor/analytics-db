@@ -5,6 +5,7 @@ import Platform from '@components/Dashboard/Platform';
 import { headers, orders, platforms } from '@constants/store';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 
 interface Metric {
   id: number;
@@ -51,6 +52,7 @@ const metrics: Metric[] = [
 ];
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col gap-5">
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-5">
@@ -88,9 +90,13 @@ const Dashboard = () => {
         <div className="border-primary white-transparent-bg order-2 flex flex-col gap-[10px] overflow-x-auto rounded-[14px] border p-5 lg:order-1 lg:col-span-3">
           <div className="mb-[14px] flex items-center justify-between">
             <h2 className="text-[18px] font-semibold">Last Orders</h2>
-            <span className="cursor-pointer text-[18px] font-medium text-accent hover:underline">
+            <button
+              type="button"
+              className="cursor-pointer text-[18px] font-medium text-accent hover:underline"
+              onClick={() => navigate('/orders')}
+            >
               See All
-            </span>
+            </button>
           </div>
           <div className="w-full overflow-x-auto">
             <table className="w-full">
@@ -145,9 +151,13 @@ const Dashboard = () => {
         <div className="border-primary white-transparent-bg order-2 flex flex-col gap-[10px] rounded-[14px] border p-5 lg:order-1 lg:col-span-2">
           <div className="mb-[14px] flex items-center justify-between">
             <h2 className="text-[18px] font-semibold">Top Platforms</h2>
-            <span className="cursor-pointer text-[18px] font-medium text-accent hover:underline">
+            <button
+              type="button"
+              onClick={() => navigate('/platforms')}
+              className="cursor-pointer text-[18px] font-medium text-accent hover:underline"
+            >
               See All
-            </span>
+            </button>
           </div>
           <div className="flex max-h-[400px] flex-col gap-5 overflow-y-auto">
             {platforms.map((platform) => (

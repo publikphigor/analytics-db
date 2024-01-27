@@ -37,9 +37,9 @@ const navigation: Navigation[] = [
     href: paths.dashboard,
   },
   {
-    name: 'Analytics',
+    name: 'Orders',
     icon: <TrendIcon />,
-    href: paths.analytics,
+    href: paths.orders,
   },
   {
     name: 'Users',
@@ -47,9 +47,9 @@ const navigation: Navigation[] = [
     href: paths.users,
   },
   {
-    name: 'Manage',
+    name: 'Platforms',
     icon: <ManageIcon />,
-    href: paths.manage,
+    href: paths.platforms,
   },
   {
     name: 'Discounts',

@@ -23,7 +23,7 @@ export default {
       center: true,
       padding: 0,
       screens: {
-        '2xl': '1280px',
+        '2xl': '1320px',
       },
     },
   },

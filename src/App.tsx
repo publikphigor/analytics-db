@@ -38,16 +38,16 @@ const lazyRoutes: LazyRoute[] = [
     component: lazy(() => import('@pages/Information')),
   },
   {
-    path: paths.analytics,
-    component: lazy(() => import('@pages/Analytics')),
+    path: paths.orders,
+    component: lazy(() => import('@pages/Orders')),
   },
   {
     path: paths.users,
     component: lazy(() => import('@pages/Users')),
   },
   {
-    path: paths.manage,
-    component: lazy(() => import('@pages/Manage')),
+    path: paths.platforms,
+    component: lazy(() => import('@pages/Platforms')),
   },
 ];
 

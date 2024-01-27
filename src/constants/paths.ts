@@ -1,9 +1,9 @@
 const paths = {
   notFound: '/404',
   dashboard: '/dashboard',
-  analytics: '/analytics',
+  orders: '/orders',
   users: '/users',
-  manage: '/manage',
+  platforms: '/platforms',
   discounts: '/discounts',
   information: '/information',
   settings: '/settings',
