@@ -186,31 +186,33 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
             </button>
           </div>
           <div className="mt-auto grid gap-[20px]">
-            <li className={`hover:active-indicator px-2 ${dark ? 'dark' : ''}`}>
+            <li className="px-2">
               <button
+                onClick={() => {
+                  if (sidebarExpanded) {
+                    setSidebarExpanded(false);
+                    return;
+                  }
+                  if (!isMobile) setSidebarExpanded(!sidebarExpanded);
+                }}
                 type="button"
-                onClick={() => {}}
-                className={classNames(
-                  'rounded-5 primary-transition group flex w-full items-center gap-x-4 px-2.5 py-[0.4375rem] text-sm text-dark dark:text-white-text',
-                  { 'justify-center': !sidebarExpanded }
-                )}
+                className={classNames('group flex px-2.5 py-[0.4375rem]', {
+                  'mx-auto block justify-center px-0': !sidebarExpanded,
+                  'w-full justify-end': sidebarExpanded,
+                })}
+                aria-label="sidebar-open"
               >
-                <LogoutIcon className="primary-transition text-grey-text" />
-                <AnimatePresence initial={false}>
-                  {sidebarExpanded && (
-                    <motion.div
-                      initial="initial"
-                      animate="animate"
-                      exit="exit"
-                      variants={variants}
-                      key="logout"
-                    >
-                      Logout
-                    </motion.div>
+                <SidebarToggle
+                  className={classNames(
+                    'transition-all duration-500',
+                    sidebarExpanded
+                      ? 'scale-x-[-1] group-hover:-translate-x-1'
+                      : 'scale-x-[1] group-hover:translate-x-1'
                   )}
-                </AnimatePresence>
+                />
               </button>
             </li>
+
             <li className={`hover:active-indicator px-2 ${dark ? 'dark' : ''}`}>
               <button
                 type="button"
@@ -236,30 +238,29 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
                 </AnimatePresence>
               </button>
             </li>
-            <li className="px-2">
+            <li className={`hover:active-indicator px-2 ${dark ? 'dark' : ''}`}>
               <button
-                onClick={() => {
-                  if (sidebarExpanded) {
-                    setSidebarExpanded(false);
-                    return;
-                  }
-                  if (!isMobile) setSidebarExpanded(!sidebarExpanded);
-                }}
                 type="button"
-                className={classNames('group flex px-2.5 py-[0.4375rem]', {
-                  'mx-auto block justify-center px-0': !sidebarExpanded,
-                  'w-full justify-end': sidebarExpanded,
-                })}
-                aria-label="sidebar-open"
+                onClick={() => {}}
+                className={classNames(
+                  'rounded-5 primary-transition group flex w-full items-center gap-x-4 px-2.5 py-[0.4375rem] text-sm text-dark dark:text-white-text',
+                  { 'justify-center': !sidebarExpanded }
+                )}
               >
-                <SidebarToggle
-                  className={classNames(
-                    'transition-all duration-500',
-                    sidebarExpanded
-                      ? 'scale-x-[-1] group-hover:-translate-x-1'
-                      : 'scale-x-[1] group-hover:translate-x-1'
+                <LogoutIcon className="primary-transition text-grey-text" />
+                <AnimatePresence initial={false}>
+                  {sidebarExpanded && (
+                    <motion.div
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      variants={variants}
+                      key="logout"
+                    >
+                      Logout
+                    </motion.div>
                   )}
-                />
+                </AnimatePresence>
               </button>
             </li>
           </div>
