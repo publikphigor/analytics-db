@@ -185,7 +185,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
               />
             </button>
           </div>
-          <div className="mt-auto grid gap-[20px]">
+          <div className="grid gap-[20px] lg:mt-auto">
             <li className="px-2">
               <button
                 onClick={() => {
