@@ -158,6 +158,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarExpanded, setSidebarExpanded }
               'mx-auto flex w-max items-center justify-center gap-4 rounded-full bg-white p-2 dark:bg-slate-800',
               {
                 'flex-col': !sidebarExpanded,
+                'lg:mx-4': sidebarExpanded,
               }
             )}
           >
