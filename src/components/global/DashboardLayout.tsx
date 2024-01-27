@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import useScreenWidth from '@hooks/useScreenWidth';
 import classNames from 'classnames';
@@ -11,6 +11,9 @@ interface DashboardLayoutProps {}
 const DashboardLayout: React.FC<DashboardLayoutProps> = () => {
   const isMobile = useScreenWidth(1024);
   const [sidebarExpanded, setSidebarExpanded] = useState<boolean>(!isMobile);
+  useEffect(() => {
+    setSidebarExpanded(!isMobile);
+  }, [isMobile]);
   return (
     <ScrollToTop>
       <Header sidebarExpanded={sidebarExpanded} />
